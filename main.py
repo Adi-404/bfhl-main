@@ -16,9 +16,9 @@ app.add_middleware(
 )
 
 # User details (hardcoded for this example)
-USER_ID = "john_doe_17091999"
-EMAIL = "john@xyz.com"
-ROLL_NUMBER = "ABCD123"
+USER_ID = "aditya_mahapatra_12882323838"
+EMAIL = "adityanarayan.mahapatra2021@vitstudent.ac.in"
+ROLL_NUMBER = "21BRS1114"
 
 # Define the request model
 class DataRequest(BaseModel):
