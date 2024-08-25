@@ -2,9 +2,18 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from typing import List, Union
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
-# Initialize the FastAPI app
 app = FastAPI()
+
+# Allow CORS from specified origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Adjust this to restrict origins if needed
+    allow_credentials=True,
+    allow_methods=["*"],  # Adjust this to restrict methods if needed
+    allow_headers=["*"],  # Adjust this to restrict headers if needed
+)
 
 # User details (hardcoded for this example)
 USER_ID = "john_doe_17091999"
@@ -31,13 +40,10 @@ async def bfhl_get():
         # Hardcoded response for the GET request
         response = {"operation_code": 1}
         
-        # Log the successful operation
-        
         # Return the response with a 200 status code
         return JSONResponse(content=response, status_code=200)
     
     except Exception as e:
-        # Log the error
         
         # Return a 500 Internal Server Error with an appropriate message
         raise HTTPException(status_code=500, detail="Internal Server Error")
